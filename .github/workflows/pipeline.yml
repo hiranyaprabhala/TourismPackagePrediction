@@ -72,9 +72,11 @@ jobs:
         run: python tourism_project/model_building/train.py
       - name: Commit Trained Model
         run: |
-          git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main  # Pull before pushing to avoid conflicts
-          git add tourism_project/deployment/Tourism_Package_Prediction.joblib   # path to the saved model file
+          git add -A  # Stage all changes, including untracked files
+          git stash   # Stash any unstaged changes to avoid rebase conflicts
+          git pull --rebase origin main
+          git stash pop || true  # Re-apply stashed changes (or ignore if empty)
+          git add tourism_project/deployment/Tourism_Package_Prediction.joblib
           git commit -m "Add trained model [skip ci]" || echo "No changes to commit"
           git push
