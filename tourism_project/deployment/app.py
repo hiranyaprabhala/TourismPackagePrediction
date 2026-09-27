@@ -6,13 +6,14 @@ import joblib
 
 
 # Load the model committed by the pipeline (sits next to this file)
-model_path = "Tourism_Package_Prediction.joblib" # Corrected path to be relative to app.py's directory
+script_dir = os.path.dirname(__file__)
+model_path = os.path.join(script_dir, "Tourism_Package_Prediction.joblib")
 
 model = joblib.load(model_path)
 
 st.title("Tourism Package Prediction App")
 st.write("""
-This application predicts the likelihood of a tourism package 
+This application predicts the likelihood of a tourism package
 """)
 
 
@@ -36,7 +37,8 @@ Designation = st.selectbox("Designation",['Executive','Manager','Senior Manager'
 MonthlyIncome = st.number_input("MonthlyIncome")
 
 
-input_data = pd.DataFrame([{
+input_data = pd.DataFrame([
+{
    "Age" : Age,
    "TypeofContact" : TypeofContact,
    "CityTier" : CityTier,
