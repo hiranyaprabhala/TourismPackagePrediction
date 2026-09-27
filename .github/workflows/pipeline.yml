@@ -11,7 +11,7 @@ permissions:
 
 jobs:
 
-  register-dataset: Register Dataset
+  register-dataset:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
