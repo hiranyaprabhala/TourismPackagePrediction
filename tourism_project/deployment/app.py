@@ -6,7 +6,7 @@ import joblib
 
 
 # Load the model committed by the pipeline (sits next to this file)
-model_path = "tourism_project/deployment/Tourism_Package_Prediction.joblib"
+model_path = "Tourism_Package_Prediction.joblib" # Corrected path to be relative to app.py's directory
 
 model = joblib.load(model_path)
 
