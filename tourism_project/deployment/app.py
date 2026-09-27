@@ -21,7 +21,7 @@ This application predicts the likelihood of a tourism package
 Age = st.number_input("Age", step=1, format="%d")
 TypeofContact = st.selectbox("TypeofContact",['Self Enquiry','Company Invited'])
 CityTier = st.number_input("CityTier", step=1, format="%d")
-DurationOfPitch = st.number_input("DurationOfPitch")
+DurationOfPitch = st.number_input("DurationOfPitch",step=1, format="%d")
 Occupation = st.selectbox("Occupation",['Salaried','Free Lancer','Small Business','Large Business']) # Corrected syntax
 Gender = st.selectbox("Gender",['Male','Female'])
 NumberOfPersonVisiting = st.number_input("NumberOfPersonVisiting", step=1, format="%d")
@@ -35,7 +35,7 @@ PitchSatisfactionScore = st.number_input("PitchSatisfactionScore", step=1, forma
 OwnCar = st.number_input("OwnCar", step=1, format="%d")
 NumberOfChildrenVisiting = st.number_input("NumberOfChildrenVisiting", step=1, format="%d")
 Designation = st.selectbox("Designation",['Executive','Manager','Senior Manager','AVP','VP'])
-MonthlyIncome = st.number_input("MonthlyIncome", format="%d")
+MonthlyIncome = st.number_input("MonthlyIncome", step=1,format="%d")
 
 
 input_data = pd.DataFrame(
