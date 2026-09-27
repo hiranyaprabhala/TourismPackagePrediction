@@ -5,6 +5,7 @@ import joblib
 
 
 
+
 # Load the model committed by the pipeline (sits next to this file)
 script_dir = os.path.dirname(__file__)
 model_path = os.path.join(script_dir, "Tourism_Package_Prediction.joblib")
@@ -17,27 +18,28 @@ This application predicts the likelihood of a tourism package
 """)
 
 
-Age = st.number_input("Age")
+Age = st.number_input("Age", step=1, format="%d")
 TypeofContact = st.selectbox("TypeofContact",['Self Enquiry','Company Invited'])
-CityTier = st.number_input("CityTier")
+CityTier = st.number_input("CityTier", step=1, format="%d")
 DurationOfPitch = st.number_input("DurationOfPitch")
 Occupation = st.selectbox("Occupation",['Salaried','Free Lancer','Small Business','Large Business']) # Corrected syntax
 Gender = st.selectbox("Gender",['Male','Female'])
-NumberOfPersonVisiting = st.number_input("NumberOfPersonVisiting")
-NumberOfFollowups = st.number_input("NumberOfFollowups")
+NumberOfPersonVisiting = st.number_input("NumberOfPersonVisiting", step=1, format="%d")
+NumberOfFollowups = st.number_input("NumberOfFollowups", step=1, format="%d")
 ProductPitched = st.selectbox("ProductPitched",['Basic','Standard','Deluxe','King','Super Deluxe'])
-PreferredPropertyStar = st.number_input("PreferredPropertyStar")
+PreferredPropertyStar = st.number_input("PreferredPropertyStar", step=1, format="%d")
 MaritalStatus = st.selectbox("MaritalStatus",['Married','Single','Divorced'])
-NumberOfTrips = st.number_input("NumberOfTrips")
+NumberOfTrips = st.number_input("NumberOfTrips", step=1, format="%d")
 Passport = st.selectbox("Passport",['Yes','No'])
-PitchSatisfactionScore = st.number_input("PitchSatisfactionScore")
-OwnCar = st.number_input("OwnCar")
-NumberOfChildrenVisiting = st.number_input("NumberOfChildrenVisiting")
+PitchSatisfactionScore = st.number_input("PitchSatisfactionScore", step=1, format="%d")
+OwnCar = st.number_input("OwnCar", step=1, format="%d")
+NumberOfChildrenVisiting = st.number_input("NumberOfChildrenVisiting", step=1, format="%d")
 Designation = st.selectbox("Designation",['Executive','Manager','Senior Manager','AVP','VP'])
-MonthlyIncome = st.number_input("MonthlyIncome")
+MonthlyIncome = st.number_input("MonthlyIncome", format="%d")
 
 
-input_data = pd.DataFrame([
+input_data = pd.DataFrame(
+[
 {
    "Age" : Age,
    "TypeofContact" : TypeofContact,
