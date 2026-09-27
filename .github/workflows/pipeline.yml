@@ -74,6 +74,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main  # Pull before pushing to avoid conflicts
           git add tourism_project/deployment/Tourism_Package_Prediction.joblib   # path to the saved model file
           git commit -m "Add trained model [skip ci]" || echo "No changes to commit"
           git push
