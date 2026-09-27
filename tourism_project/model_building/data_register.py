@@ -26,5 +26,5 @@ if missing:
 print("Dataset registered successfully.")
 print(f"Rows: {df.shape[0]}, Columns: {df.shape[1]}")
 print("Columns:", list(df.columns))
-print("Target column preview (ProdTaken):")
+print("Target column preview:")
 print(df["ProdTaken"].describe())
