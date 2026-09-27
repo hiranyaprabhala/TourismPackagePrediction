@@ -41,24 +41,24 @@ MonthlyIncome = st.number_input("MonthlyIncome", step=1,format="%d")
 input_data = pd.DataFrame(
 [
 {
-   "Age" : Age,
+   "Age" : int(Age),
    "TypeofContact" : TypeofContact,
-   "CityTier" : CityTier,
-   "DurationOfPitch" : DurationOfPitch,
+   "CityTier" : int(CityTier),
+   "DurationOfPitch" : int(DurationOfPitch),
    "Occupation" : Occupation,
    "Gender" : Gender,
-   "NumberOfPersonVisiting" : NumberOfPersonVisiting,
-   "NumberOfFollowups" : NumberOfFollowups,
+   "NumberOfPersonVisiting" : int(NumberOfPersonVisiting),
+   "NumberOfFollowups" : int(NumberOfFollowups),
    "ProductPitched" : ProductPitched,
-   "PreferredPropertyStar" : PreferredPropertyStar,
+   "PreferredPropertyStar" : int(PreferredPropertyStar),
    "MaritalStatus" : MaritalStatus,
-   "NumberOfTrips" : NumberOfTrips,
-   "Passport" : Passport,
-   "PitchSatisfactionScore" : PitchSatisfactionScore,
-   "OwnCar" : OwnCar,
-   "NumberOfChildrenVisiting" : NumberOfChildrenVisiting,
+   "NumberOfTrips" : int(NumberOfTrips),
+   "Passport" : int(Passport),
+   "PitchSatisfactionScore" : int(PitchSatisfactionScore),
+   "OwnCar" : int(OwnCar),
+   "NumberOfChildrenVisiting" : int(NumberOfChildrenVisiting),
    "Designation" : Designation,
-   "MonthlyIncome" : MonthlyIncome
+   "MonthlyIncome" : int(MonthlyIncome)
 }])
 
 if st.button("Predict Purchase"): # Changed button text
