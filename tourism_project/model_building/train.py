@@ -21,8 +21,9 @@ ytrain = pd.read_csv("ytrain.csv").squeeze()
 ytest  = pd.read_csv("ytest.csv").squeeze()
 
 # One-hot encode 'Type' and scale numeric features
-numeric_features = X.select_dtypes(include=['float', 'int']).columns.to_list()
-categorical_features = X.select_dtypes(include=['object']).columns.to_list()
+# Re-derive numeric and categorical features from Xtrain to avoid issues if column order changes
+numeric_features = Xtrain.select_dtypes(include=['float', 'int']).columns.to_list()
+categorical_features = Xtrain.select_dtypes(include=['object']).columns.to_list()
 
 # Set the class weight to handle class imbalance
 class_weight = ytrain.value_counts()[0] / ytrain.value_counts()[1]
@@ -100,7 +101,7 @@ with mlflow.start_run():
 
     # Save next to app.py so the Streamlit app can load it directly, and log
     # it as an MLflow artifact for traceability
-    model_path = "week_3_mls/deployment/best_machine_failure_model_v1.joblib"
+    model_path = "tourism_project/deployment/Tourism_Package_Prediction.joblib" # Corrected path to match app.py
     joblib.dump(best_model, model_path)
     mlflow.log_artifact(model_path, artifact_path="model")
     print(f"Model saved to {model_path}")
